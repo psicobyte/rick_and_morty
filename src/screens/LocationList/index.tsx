@@ -4,6 +4,7 @@ import { QueryData, Location } from '../../types'
 import LocationCard from '../../components/LocationCard'
 import { useParams } from 'react-router-dom'
 import Pagination from '../../components/Pagination'
+import styles from './style.module.css'
 
 const LocationList = () => {
   const [locationList, setLocationList] = useState<Location[]>([])
@@ -28,19 +29,22 @@ const LocationList = () => {
   }, [])
 
   return (
-        <>aaa
+        <div className={styles.body}>
+            <h1 className={styles.header}>Location list</h1>
+            <div className={styles.list}>
             {locationList.map((location: Location) => (
                 <LocationCard key={location.id}
                               {...location}
                 />
             ))}
+            </div>
             <Pagination
                 current = {page ? parseInt(page) : 1}
                 max = {maxPage || 1}
                 baseUrl = {'/locations/pag'}
 
             />
-        </>
+        </div>
   )
 }
 

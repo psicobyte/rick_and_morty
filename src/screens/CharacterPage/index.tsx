@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Character, QueryData } from '../../types'
 import { useParams } from 'react-router-dom'
 import apiQuery from '../../helpers/apiQuery'
+import styles from './style.module.css'
 
 const CharacterPage = () => {
   const { id } = useParams()
@@ -23,12 +24,12 @@ const CharacterPage = () => {
 
   if (characterData) {
     return (
-      <div>
-        <div>
-            <h1>{characterData.name}</h1>
+      <div className={styles.char} >
+        <h1 className={styles.head}>{characterData.name}</h1>
+        <div className={styles.panel}>
             <img src={characterData.image} />
         </div>
-        <div>
+          <div className={styles.panel}>
             <ul>
                 <li><strong>species:</strong> <em>{characterData.species}</em></li>
                 <li><strong>type:</strong> <em>{characterData.type}</em></li>
