@@ -3,7 +3,7 @@ export interface QueryData {
     key: string
     page?: string
 }
-export interface Location {
+export interface CharacterLocation {
     name: string;
     url: string;
 }
@@ -15,8 +15,8 @@ export interface Character {
     species: string;
     type: string;
     gender: string;
-    origin: Location;
-    location: Location;
+    origin: CharacterLocation;
+    location: CharacterLocation;
     image: string;
     episode: string[];
     url: string;
@@ -27,4 +27,14 @@ export interface PaginationData {
     current: number
     max: number
     baseUrl: string
+}
+
+export interface Location {
+    id: number;
+    name: string;
+    type: string;
+    dimension: string;
+    residents: string[];
+    url: string;
+    created: Date;
 }

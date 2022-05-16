@@ -2,8 +2,9 @@ import axios from 'axios'
 import { QueryData } from '../types'
 
 const apiQuery = async (queryData: QueryData) => {
-  const url = process.env.REACT_APP_API_REST_URL + queryData.key + '?page=' + queryData.page
-  console.log(url)
+  const filterPage = ('page' in queryData) ? 'page=' + queryData.page : ''
+  const url = process.env.REACT_APP_API_REST_URL + queryData.key + '?' + filterPage
+  console.log('api', url)
   const result = apiRestQuery(url)
 
   return result
